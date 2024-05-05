@@ -1,6 +1,6 @@
 
-import newFolderModal from '../components/addFolderModal.js';
-import newTaskModal from '../components/addTaskModal.js'
+import newFolderModal from '../components/FolderModal.js';
+import newTaskModal from '../components/TaskModal.js'
 
 const openModalListeners = (() => {
     const btnAdd = document.querySelectorAll(".add");
