@@ -11,7 +11,7 @@
         <div class="sidebar light-background no-select">
             <h3 class="sidebar__title pb-big">To Do List</h3>
 
-            <h4 class="pb">Projects</h4>
+            <h4 class="pb">Folders</h4>
             <div class="projects-list">
                 <div class="project">
                     <div class="project-title">
@@ -34,7 +34,7 @@
                     </div>
                     <div class="project-task-count">0</div>
                 </div>
-                <div class="project-add mt">
+                <div class="add add-project mt" id="add-project">
                     <div class="project-title">
                         <i data-feather="plus" class="small"></i>
                         <div class="project-name">Add new folder</div>
@@ -42,9 +42,11 @@
                 </div>
             </div>
         </div>
+
+
         <div class="content">
             <h1 class="black-text pb">Birthdays</h1>
-            <div class="no-select add-task">
+            <div class="no-select add add-task">
                 <i data-feather="plus" class="medium"></i>
                 <span>Add new todo</span>
             </div>
@@ -103,6 +105,16 @@
             </div>
         </div>
     </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-container">
+          <div class="modal-title">
+            <span id="close">&times;</span>
+          </div>
+          <div class="modal-content">
+          </div>
+        </div>
+      </div>
 </body>
 
 </html>
