@@ -12,7 +12,10 @@
     --clr-light-text: #7C7C7C;
     --clr-lighter2-text: rgba(124, 124, 124, 0.461);
     --clr-lighter-text: rgba(124, 124, 124, 0.192);
+    --clr-comfirm: #187ff5bd;
+    --clr-comfirm-dark: #187ff5eb;
     --clr-red: #ff6b6b;
+    --clr-red-faded: #ff6b6b94;
     --clr-yellow: #ffd43b;
     --clr-blue: #66d9e8;
     --padding-small: 15px;
@@ -187,7 +190,7 @@ h4 {
     font-weight: 500;
 }
 
-.add-task {
+.button {
     display: flex;
     align-items: center;
     gap: calc(var(--padding-small) / 2);
@@ -198,7 +201,16 @@ h4 {
     border-radius: var(--border-radius);
 }
 
-.add-task:hover {
+.button-comfirm {
+    background-color: var(--clr-comfirm);
+    color:white!important;
+}
+
+.button-comfirm:hover {
+    background-color: var(--clr-comfirm-dark)!important;
+}
+
+.button:hover {
     color: var(--clr-black-text);
     background-color: var(--clr-light-background);
 }
@@ -224,12 +236,12 @@ h4 {
     border-bottom: 1px solid var(--clr-dark-background);
 }
 
-.todo.checked > .todo-main > .todo-name, .todo.checked > .todo-main > .todo-info {
+.todo.checked > .todo-main > .todo-name, .todo.checked > .todo-main > .todo-info > .todo-data {
     color: var(--clr-lighter2-text);
     text-decoration: line-through;
 }
 
-.todo.checked > .todo-main > .todo-info > .todo-priority > .badge {
+.todo.checked > .todo-main > .todo-info > .todo-data > .todo-priority > .badge {
     opacity: 0.5;
 }
 
@@ -251,12 +263,48 @@ h4 {
     gap: calc(var(--padding-small) * 2);
     color: var(--clr-light-text);
     font-size: smaller;
+    justify-content: space-between;
 }
 
-.todo-date, .todo-priority {
+.todo-data {
+    display: flex;
+    gap: calc(var(--padding-small) * 2);
+}
+
+.todo-date, .todo-priority, .todo-edit {
     display: flex;
     align-items: center;
     gap: calc(var(--padding-small) / 3);
+}
+
+.todo-actions {
+    display: flex;
+    gap: var(--padding-small);
+}
+
+.btn-delete {
+    color: var(--clr-red-faded);
+}
+
+.btn-delete > svg {
+    height: 15px;
+    width: 15px;
+}
+
+.btn-delete:hover {
+    color: var(--clr-red)!important;
+}
+
+.trash {
+    color: var(--clr-light-text)
+}
+
+.trash:hover {
+    color: var(--clr-red);
+}
+
+.todo-action:hover {
+    color: var(--clr-black-text);
 }
 
 /* MODAL */
@@ -271,7 +319,7 @@ h4 {
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgba(0,0,0,0.1); /* Black w/ opacity */
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(1px);
 }
 
 @keyframes animate {
@@ -294,7 +342,7 @@ h4 {
     background-color: #fefefe;
     margin: 20% auto; /* 15% from the top and centered */
     padding: 20px;
-    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 700px; /* Could be more or less, depending on screen size */
     display: flex;
     flex-direction: column;
     gap: calc(var(--padding-small) * 2);
@@ -308,6 +356,12 @@ h4 {
     align-items: start;
 }
 
+.modal-actions {
+    align-self: end;
+    display: flex;
+    gap: var(--padding-small);
+}
+
 #close {
     color: #aaa;
     font-size: 28px;
@@ -319,4 +373,20 @@ h4 {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+.simple-form {
+    display: flex;
+    gap: var(--padding-small);
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.form-field > input {
+    border: 1px solid var(--clr-light-text);
+    padding: calc(var(--padding-small) / 2) var(--padding-small);
+    margin-left: 1rem;
+    border-radius: calc(var(--border-radius) / 2);
+    outline: none;
+    font-size: medium;
 }

@@ -16,21 +16,21 @@
                 <div class="project">
                     <div class="project-title">
                         <i data-feather="chevron-right" class="small"></i>
-                        <div class="project-name">Upcoming</div>
+                        <div class="project-name">General</div>
                     </div>
-                    <div class="project-task-count">2</div>
+                    <div class="project-task-count">0</div>
                 </div>
                 <div class="project active">
                     <div class="project-title">
                         <i data-feather="chevron-right" class="small"></i>
                         <div class="project-name">Birthdays</div>
                     </div>
-                    <div class="project-task-count"><span>12</span></div>
+                    <div class="project-task-count"><span>10</span></div>
                 </div>
                 <div class="project">
                     <div class="project-title">
                         <i data-feather="chevron-right" class="small"></i>
-                        <div class="project-name">Calendar</div>
+                        <div class="project-name">Events</div>
                     </div>
                     <div class="project-task-count">0</div>
                 </div>
@@ -45,8 +45,11 @@
 
 
         <div class="content">
-            <h1 class="black-text pb">Birthdays</h1>
-            <div class="no-select add add-task">
+            <div style="display: flex; align-items: center; gap: var(--padding-small)">
+                <h1 class="folder-title black-text pb">Birthdays</h1>
+                <div class="trash-folder"><i data-feather="trash" class="medium pb trash"></i></div>
+            </div>
+            <div class="no-select add add-task button">
                 <i data-feather="plus" class="medium"></i>
                 <span>Add new todo</span>
             </div>
@@ -58,12 +61,22 @@
                     <div class="todo-main">
                         <div class="todo-name">
                             <div>Ut enim ad minim veniam, quis nostrud exermcot.</div>
-                            <i data-feather="chevron-right" class="medium"></i>
                         </div>
                         <div class="todo-info">
-                            <div class="todo-date"><i data-feather="calendar" class="small"></i>06-05-2024</div>
-                            <div class="todo-priority">
-                                <div class="badge badge-high"></div> High
+                            <div class="todo-data">
+                                <div class="todo-date"><i data-feather="calendar" class="small"></i>06-05-2024</div>
+                                <div class="todo-priority">
+                                    <div class="badge badge-high"></div> High
+                                </div>
+                            </div>
+                            <div class="todo-actions">
+                                <div class="todo-edit todo-action no-select btn-edit">
+                                    <i data-feather="edit" class="small"></i>
+                                    Edit
+                                </div>
+                                <div class="todo-edit todo-action no-select btn-delete">
+                                    <i data-feather="trash-2" class=""></i>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -75,12 +88,22 @@
                     <div class="todo-main">
                         <div class="todo-name">
                             <div>Lorem ipsum dolor sit amet, coning elit.</div>
-                            <i data-feather="chevron-right" class="medium"></i>
                         </div>
                         <div class="todo-info">
-                            <div class="todo-date"><i data-feather="calendar" class="small"></i>06-05-2024</div>
-                            <div class="todo-priority">
-                                <div class="badge badge-low"></div> Low
+                            <div class="todo-data">
+                                <div class="todo-date"><i data-feather="calendar" class="small"></i>06-05-2024</div>
+                                <div class="todo-priority">
+                                    <div class="badge badge-low"></div> Low
+                                </div>
+                            </div>
+                            <div class="todo-actions">
+                                <div class="todo-edit todo-action no-select btn-edit">
+                                    <i data-feather="edit" class="small"></i>
+                                    Edit
+                                </div>
+                                <div class="todo-edit todo-action no-select btn-delete">
+                                    <i data-feather="trash-2" class=""></i>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -92,12 +115,22 @@
                     <div class="todo-main">
                         <div class="todo-name">
                             <div>Sed do eiusmod tgna aliqua.</div>
-                            <i data-feather="chevron-right" class="medium"></i>
                         </div>
                         <div class="todo-info">
-                            <div class="todo-date"><i data-feather="calendar" class="small"></i>06-05-2024</div>
-                            <div class="todo-priority">
-                                <div class="badge badge-medium"></div> Medium
+                            <div class="todo-data">
+                                <div class="todo-date"><i data-feather="calendar" class="small"></i>06-05-2024</div>
+                                <div class="todo-priority">
+                                    <div class="badge badge-medium"></div> Medium
+                                </div>
+                            </div>
+                            <div class="todo-actions">
+                                <div class="todo-edit todo-action no-select btn-edit">
+                                    <i data-feather="edit" class="small"></i>
+                                    Edit
+                                </div>
+                                <div class="todo-edit todo-action no-select btn-delete">
+                                    <i data-feather="trash-2" class=""></i>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -109,12 +142,22 @@
                     <div class="todo-main">
                         <div class="todo-name">
                             <div>Ut enim ad minim veniam, quis nostrud exermcot.</div>
-                            <i data-feather="chevron-right" class="medium"></i>
                         </div>
                         <div class="todo-info">
-                            <div class="todo-date"><i data-feather="calendar" class="small"></i>06-05-2024</div>
-                            <div class="todo-priority">
-                                <div class="badge badge-high"></div> High
+                            <div class="todo-data">
+                                <div class="todo-date"><i data-feather="calendar" class="small"></i>06-05-2024</div>
+                                <div class="todo-priority">
+                                    <div class="badge badge-high"></div> High
+                                </div>
+                            </div>
+                            <div class="todo-actions">
+                                <div class="todo-edit todo-action no-select btn-edit">
+                                    <i data-feather="edit" class="small"></i>
+                                    Edit
+                                </div>
+                                <div class="todo-edit todo-action no-select btn-delete">
+                                    <i data-feather="trash-2" class=""></i>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -126,12 +169,22 @@
                     <div class="todo-main">
                         <div class="todo-name">
                             <div>Ut enim ad minim veniam, quis nostrud exermcot.</div>
-                            <i data-feather="chevron-right" class="medium"></i>
                         </div>
                         <div class="todo-info">
-                            <div class="todo-date"><i data-feather="calendar" class="small"></i>06-05-2024</div>
-                            <div class="todo-priority">
-                                <div class="badge badge-high"></div> High
+                            <div class="todo-data">
+                                <div class="todo-date"><i data-feather="calendar" class="small"></i>06-05-2024</div>
+                                <div class="todo-priority">
+                                    <div class="badge badge-high"></div> High
+                                </div>
+                            </div>
+                            <div class="todo-actions">
+                                <div class="todo-edit todo-action no-select btn-edit">
+                                    <i data-feather="edit" class="small"></i>
+                                    Edit
+                                </div>
+                                <div class="todo-edit todo-action no-select btn-delete">
+                                    <i data-feather="trash-2" class=""></i>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -143,12 +196,22 @@
                     <div class="todo-main">
                         <div class="todo-name">
                             <div>Ut enim ad minim veniam, quis nostrud exermcot.</div>
-                            <i data-feather="chevron-right" class="medium"></i>
                         </div>
                         <div class="todo-info">
-                            <div class="todo-date"><i data-feather="calendar" class="small"></i>06-05-2024</div>
-                            <div class="todo-priority">
-                                <div class="badge badge-high"></div> High
+                            <div class="todo-data">
+                                <div class="todo-date"><i data-feather="calendar" class="small"></i>06-05-2024</div>
+                                <div class="todo-priority">
+                                    <div class="badge badge-high"></div> High
+                                </div>
+                            </div>
+                            <div class="todo-actions">
+                                <div class="todo-edit todo-action no-select btn-edit">
+                                    <i data-feather="edit" class="small"></i>
+                                    Edit
+                                </div>
+                                <div class="todo-edit todo-action no-select btn-delete">
+                                    <i data-feather="trash-2" class=""></i>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -163,6 +226,11 @@
             <span id="close">&times;</span>
           </div>
           <div class="modal-content">
+          </div>
+          <div class="modal-actions">
+            <div class="no-select button close">
+                <span>Cancel</span>
+            </div>
           </div>
         </div>
       </div>
