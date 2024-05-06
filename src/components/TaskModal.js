@@ -1,8 +1,29 @@
 import modal from '../scripts/modal';
+import Folder, { foldersDOM } from '../scripts/folders';
+import state from '../scripts/state';
+import { tasksDOM } from '../scripts/tasks';
 
 export default function newTaskModal () {
     const parser = new DOMParser();
-    const html = `<p>New task content</p>`;
+    const html = `<div class="simple-form">
+    <div class="form-field">
+        <label>Desc:</label>
+        <input type="test" id='task-desc' autofocus autocomplete="off" required></input>
+    </div>
+    <div class="form-field">
+    <label>Priority:</label>
+    <select id="task-priority" required>
+  <option value="High">High</option>
+  <option value="Medium">Medium</option>
+  <option value="Low">Low</option>
+</select>
+</div>
+
+<div class="form-field">
+        <label>Due date:</label>
+        <input type="date" required id='task-due-date' autofocus autocomplete="off"></input>
+    </div>
+                </div>`;
     const buttonTitle = 'Add task';
     const buttonId = 'add-task';
 
@@ -16,8 +37,15 @@ export default function newTaskModal () {
 const taskModal = (() => {
     document.querySelector('#modal').addEventListener('click', (e) => {
         if (e.target.closest('#add-task')) {
-            console.log("add task logic");
-            console.log(modal);
+            const desc = document.querySelector('#task-desc').value;
+            const priority = document.querySelector('#task-priority').value;
+            const dueDate = document.querySelector('#task-due-date').value;
+
+            if (desc && priority && dueDate) {
+                tasksDOM.addTask(desc, dueDate, priority);
+            } else {
+                console.log("All fields are required.");
+            }
         };
-    })
+    });
 })();

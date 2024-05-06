@@ -87,7 +87,7 @@ const foldersDOM = (() => {
 
     state.active = title;
 
-    tasksDOM.populateTasks(title, Folder.allFolders.get(title));
+    tasksDOM.populateTasks();
 
     if (document.querySelector(`[data-project="p_${title}"]`)) {
         document.querySelector(`[data-project="p_${title}"]`).classList.toggle("active");
@@ -97,8 +97,6 @@ const foldersDOM = (() => {
   };
 
   const setActiveFirst = () => {
-
-    console.log(Folder.allFolders.size);
     Folder.allFolders.size > 0 ? setActive(Folder.allFolders.entries().next().value[0]) : setActive('');
   }
 
@@ -116,9 +114,7 @@ const foldersDOM = (() => {
 
 /* Initial load */
 new Folder("General");
-Folder.allFolders.get("General").todos = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 new Folder("Birthdays");
-Folder.allFolders.get("Birthdays").todos = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 new Folder("Events");
 
 foldersDOM.populate();

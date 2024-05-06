@@ -382,7 +382,7 @@ h4 {
     align-items: center;
 }
 
-.form-field > input {
+.form-field > input, .form-field > select {
     border: 1px solid var(--clr-light-text);
     padding: calc(var(--padding-small) / 2) var(--padding-small);
     margin-left: 1rem;
