@@ -1,5 +1,5 @@
 const state = (() => {
-    let active = 'General';
+    let active = '';
 
     return {active};
 })();

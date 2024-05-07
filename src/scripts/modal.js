@@ -3,7 +3,8 @@ import newEditTask from '../components/EditTaskModal.js';
 import newFolderModal from '../components/FolderModal.js';
 import newTaskModal from '../components/TaskModal.js'
 
-
+// Adding event listeners for buttons that open and close modal.
+//Based on button clicked opens different modal
 const openModalListeners = (() => {
     const btnAdd = document.querySelectorAll(".add, .btn-edit");
     let modalContent;
@@ -36,6 +37,8 @@ const openModalListeners = (() => {
     })
 })();
 
+
+//Functions for building modal contents/title/buttons depending on given parameters
 const modal = (() => {
     const modal = document.querySelector("#modal");
     const modalTitle = document.querySelector(".modal-title");

@@ -112,11 +112,5 @@ const foldersDOM = (() => {
   return { populate, setActive, setActiveFirst };
 })();
 
-/* Initial load */
-new Folder("General");
-new Folder("Birthdays");
-new Folder("Events");
-
-foldersDOM.populate();
 
 export { foldersDOM };

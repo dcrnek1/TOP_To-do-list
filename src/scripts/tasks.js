@@ -1,6 +1,7 @@
 import Folder, { foldersDOM } from "./folders";
 import state from "./state";
 import modal from "./modal";
+import feather from "/node_modules/feather-icons/dist/feather.min.js";
 
 export default class Task {
     constructor(text, dueDate, priority, checked) {
@@ -9,17 +10,19 @@ export default class Task {
         this.priority = priority;
         this.checked = checked;
     }
+
+    toggleChecked() {
+        this.checked = this.checked ? false : true;
+    }
 }
 
 //Based on clicked task check or uncheck it
 const tasksDOM = (() => {
-
-
     function addEventListeners () {
         document.querySelectorAll('.todo').forEach((todo) => {
             todo.addEventListener('click', (e) => {
                if (e.target.closest('.btn-edit') || e.target.closest('.btn-delete')) {
-                    e.target.closest('.btn-delete') ? console.log("Delete To do") : undefined;
+                    e.target.closest('.btn-delete') ? deleteTask(todo.getAttribute('id').substring(2)) : undefined;
                } else {
                 toggleCheck(todo);
                }
@@ -32,7 +35,7 @@ const tasksDOM = (() => {
         todo.querySelector('.checkbox>input').toggleAttribute('checked');
         todo.querySelector('.checkbox>input').toggleAttribute('disabled');
 
-        //TODO ažuriraj array of objects
+        Folder.allFolders.get(state.active).todos[todo.getAttribute('id').substring(2)].toggleChecked()
     }
 
     const populateTasks = () => {
@@ -45,24 +48,21 @@ const tasksDOM = (() => {
         }
     }
 
+    //Generate HTML for all todays for current state
     const tasksHtml = () => {
         const todosEl = document.querySelector('.todos');
-
         todosEl.querySelectorAll(".todo").forEach((todo) => {
             todo.remove();
         })
 
         let tasksHtmlEl = '';
-        const parser = new DOMParser();
 
-        if (Folder && Folder.allFolders.get(state.active).todos.length > 0) {
-            console.log("Više od 0");
-            
-            Folder.allFolders.get(state.active).todos.forEach(todo => {
+        if (Folder.allFolders.get(state.active) && Folder.allFolders.get(state.active).todos.length > 0) {
+            Folder.allFolders.get(state.active).todos.forEach((todo, index) => {
                 const htmlEl = `
-                <div class="todo">
+                <div class="todo${todo.checked ? ' checked' : ''}" id="t_${index}">
                 <div class="checkbox">
-                    <input type="checkbox" id="myCheckbox" ${todo.checked ? 'checked' : ''}>
+                    <input type="checkbox" id="myCheckbox" ${todo.checked ? 'checked disabled' : ''}>
                 </div>
                 <div class="todo-main">
                     <div class="todo-name">
@@ -88,16 +88,18 @@ const tasksDOM = (() => {
                 </div>
             </div>
                 `;
-            
                 tasksHtmlEl += htmlEl;
             })
             
-            const childTodos = parser.parseFromString(tasksHtmlEl, 'text/html').body.children;
-            console.log(typeof childTodos);
             todosEl.innerHTML = tasksHtmlEl;
             addEventListeners();
+            feather.replace();
         }
-        
+    }
+
+    const deleteTask = (todoId) => {
+        Folder.allFolders.get(state.active).removeTodo(todoId);
+        foldersDOM.populate();
     }
 
 
@@ -105,6 +107,7 @@ const tasksDOM = (() => {
         document.querySelector('.folder-title').textContent = title;
     };
 
+    //Dodaj novi task
     const addTask = (desc, dueDate, priority) => {
         Folder.allFolders.get(state.active).addTodo(desc, dueDate, priority);
         modal.close();
