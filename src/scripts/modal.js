@@ -1,12 +1,12 @@
 
-import newEditTask from '../components/EditTaskModal.js';
+
 import newFolderModal from '../components/FolderModal.js';
 import newTaskModal from '../components/TaskModal.js'
 
 // Adding event listeners for buttons that open and close modal.
 //Based on button clicked opens different modal
 const openModalListeners = (() => {
-    const btnAdd = document.querySelectorAll(".add, .btn-edit");
+    const btnAdd = document.querySelectorAll(".add");
     let modalContent;
     
     btnAdd.forEach(element => {
@@ -15,10 +15,8 @@ const openModalListeners = (() => {
                 modalContent = newFolderModal();
             } else if (e.target.closest('.add')) {
                 modalContent = newTaskModal();
-            } else if (e.target.closest('.btn-edit')) {
-                modalContent = newEditTask();
-                console.log("Ovdje ti treba naziv projekta/index taska");
             }
+
 
             modal.open(modalContent.title, modalContent.content, modalContent.button);
         })
@@ -45,7 +43,7 @@ const modal = (() => {
     const modalContent = document.querySelector(".modal-content");
     const modalActions = document.querySelector('.modal-actions');
 
-    const open = (title, content, button) => {
+    const open = (title, content, button, taskId = undefined) => {
         modal.classList.add("show");
         addModalTitle(title);
         addModalContent(content);

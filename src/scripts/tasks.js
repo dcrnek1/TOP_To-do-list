@@ -2,6 +2,7 @@ import Folder, { foldersDOM } from "./folders";
 import state from "./state";
 import modal from "./modal";
 import feather from "/node_modules/feather-icons/dist/feather.min.js";
+import newEditTask from '../components/EditTaskModal.js';
 
 export default class Task {
     constructor(text, dueDate, priority, checked) {
@@ -22,13 +23,19 @@ const tasksDOM = (() => {
         document.querySelectorAll('.todo').forEach((todo) => {
             todo.addEventListener('click', (e) => {
                if (e.target.closest('.btn-edit') || e.target.closest('.btn-delete')) {
-                    e.target.closest('.btn-delete') ? deleteTask(todo.getAttribute('id').substring(2)) : undefined;
+                    e.target.closest('.btn-delete') ? deleteTask(todo.getAttribute('id').substring(2)) : openModalEdit(todo.getAttribute('id').substring(2));
                } else {
                 toggleCheck(todo);
                }
             })
         });
     };
+
+    const openModalEdit = (taskId) => {
+        const modalContent = new newEditTask(taskId, Folder.allFolders.get(state.active).todos[taskId]);
+        console.log(modalContent);
+        modal.open(modalContent.title, modalContent.content, modalContent.button, modalContent.taskId);
+    }
 
     const toggleCheck = (todo) => {
         todo.classList.toggle("checked");
