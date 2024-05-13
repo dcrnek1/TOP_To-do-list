@@ -26,8 +26,8 @@ const folderModal = (() => {
             const folderTitle = document.querySelector('#folder-title').value;
             try {
                 const newFolder = new Folder(folderTitle);
-                foldersDOM.populate();
                 foldersDOM.setActive(newFolder._title);
+                foldersDOM.populate();
                 modal.close();
             } catch (e) {
                 console.log(e);
