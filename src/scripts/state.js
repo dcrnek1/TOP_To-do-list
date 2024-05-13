@@ -1,7 +1,7 @@
 const state = (() => {
-    let active = '';
+  let active = "";
 
-    return {active};
+  return { active };
 })();
 
 export default state;

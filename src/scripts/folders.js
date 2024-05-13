@@ -94,21 +94,28 @@ const foldersDOM = (() => {
     tasksDOM.populateTasks();
 
     if (document.querySelector(`[data-project="p_${title}"]`)) {
-        document.querySelector(`[data-project="p_${title}"]`).classList.toggle("active");
+      document
+        .querySelector(`[data-project="p_${title}"]`)
+        .classList.toggle("active");
     }
-    
+
     addEventListeners();
   };
 
   const setActiveFirst = () => {
-    Folder.allFolders.size > 0 ? setActive(Folder.allFolders.entries().next().value[0]) : setActive('');
-    localStorage.state =   Folder.allFolders.size > 0 ? Folder.allFolders.entries().next().value[0] : '';
-  }
+    Folder.allFolders.size > 0
+      ? setActive(Folder.allFolders.entries().next().value[0])
+      : setActive("");
+    localStorage.state =
+      Folder.allFolders.size > 0
+        ? Folder.allFolders.entries().next().value[0]
+        : "";
+  };
 
   const addEventListeners = () => {
     projectsList.querySelectorAll(".project").forEach((project) => {
       project.addEventListener("click", (e) => {
-        state.active = project.getAttribute('data-project').substring(2);
+        state.active = project.getAttribute("data-project").substring(2);
         populate();
       });
     });
@@ -116,6 +123,5 @@ const foldersDOM = (() => {
 
   return { populate, setActive, setActiveFirst };
 })();
-
 
 export { foldersDOM };
