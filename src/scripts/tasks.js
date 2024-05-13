@@ -33,7 +33,6 @@ const tasksDOM = (() => {
 
     const openModalEdit = (taskId) => {
         const modalContent = new newEditTask(taskId, Folder.allFolders.get(state.active).todos[taskId]);
-        console.log(modalContent);
         modal.open(modalContent.title, modalContent.content, modalContent.button, modalContent.taskId);
     }
 

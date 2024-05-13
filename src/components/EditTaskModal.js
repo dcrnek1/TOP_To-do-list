@@ -4,7 +4,6 @@ import state from '../scripts/state';
 import { foldersDOM } from '../scripts/folders';
 
 export default function newEditTask (taskId, todo) {
-    console.log(todo);
     const parser = new DOMParser();
     const html = `<div class="simple-form" id="pe_${taskId}">
     <div class="form-field">

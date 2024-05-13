@@ -77,6 +77,10 @@ const foldersDOM = (() => {
     });
 
     setActive(state.active);
+
+    localStorage.setItem("folders", JSON.stringify([...Folder.allFolders]));
+    localStorage.setItem("state", state.active);
+
     feather.replace();
   };
 
@@ -98,6 +102,7 @@ const foldersDOM = (() => {
 
   const setActiveFirst = () => {
     Folder.allFolders.size > 0 ? setActive(Folder.allFolders.entries().next().value[0]) : setActive('');
+    localStorage.state =   Folder.allFolders.size > 0 ? Folder.allFolders.entries().next().value[0] : '';
   }
 
   const addEventListeners = () => {
